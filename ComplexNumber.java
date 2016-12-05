@@ -40,6 +40,19 @@ public class ComplexNumber {
         return new ComplexNumber(newReal, newImagine);
     }
 
+    public ComplexNumber div(ComplexNumber number) {
+        int a1 = getReal();
+        int b1 = getImagine();
+        int a2 = number.getReal();
+        int b2 = number.getImagine();
+        int den = a2 * a2 + b2 * b2;
+        int newReal = (a1 * a2 + b1 * b2) / den;
+        int newImagine = (a2 * b1 - a1 * b2) /den;
+        return new ComplexNumber(newReal, newImagine);
+    }
+    public static ComplexNumber parseComplexNumber(String source) {
+        return new ComplexNumber(Integer.parseInt(source), 0);
+    }
     @Override
     public int hashCode() {
         return getReal() + getImagine();
